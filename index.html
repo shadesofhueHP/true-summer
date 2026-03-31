@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Soft Summer Palette</title>
+<title>True Summer Palette</title>
 
 <style>
 *{box-sizing:border-box;}
@@ -47,7 +47,7 @@ gap:14px;
 grid-column:1/-1;
 font-size:12px;
 letter-spacing:.15em;
-color:#7a6f72;
+color:#6f7380;
 margin-top:14px;
 }
 
@@ -64,7 +64,9 @@ display:none;
 z-index:999;
 }
 
-.lightbox.show{display:block;}
+.lightbox.show{
+display:block;
+}
 
 .lightbox-color{
 position:absolute;
@@ -86,6 +88,8 @@ display:flex;
 align-items:center;
 justify-content:center;
 backdrop-filter:blur(6px);
+-webkit-backdrop-filter:blur(6px);
+cursor:pointer;
 }
 
 .controls{
@@ -108,6 +112,8 @@ display:flex;
 align-items:center;
 justify-content:center;
 backdrop-filter:blur(6px);
+-webkit-backdrop-filter:blur(6px);
+cursor:pointer;
 }
 
 .swipe{
@@ -119,6 +125,30 @@ color:white;
 letter-spacing:.15em;
 font-size:12px;
 }
+
+@media (max-width:640px){
+.logo{
+max-width:180px;
+}
+
+.grid{
+gap:12px;
+}
+
+.tile{
+border-radius:18px;
+}
+
+.close-btn{
+top:28px;
+right:28px;
+}
+
+.controls{
+top:28px;
+right:76px;
+}
+}
 </style>
 </head>
 
@@ -127,8 +157,8 @@ font-size:12px;
 <div class="container">
 
 <div class="header">
-<img class="logo" src="logo.png">
-<h1>Soft Summer</h1>
+<img class="logo" src="logo.png" alt="Shades of Hue logo">
+<h1>True Summer</h1>
 <div>Tap color • Swipe to browse</div>
 </div>
 
@@ -154,163 +184,187 @@ font-size:12px;
 const groups = [
 
 {
-title:"COOL GREYS + TAUPES",
+title:"TRUE SUMMER NEUTRALS",
 colors:[
-"#A9A6B1","#B8AFB1","#CBC4C7",
-"#AA9D9F","#BFB6B8","#CFC8CB",
-"#D3CCC3","#C9C1B6","#D8D0C6"
+"#E6E1E2",
+"#D8D0D1",
+"#C9C4C8",
+"#B2A8AF",
+"#8B7D87",
+"#DAD8D2",
+"#C8C9C9",
+"#AEB8BC",
+"#8E969D"
 ]
 },
 
 {
-title:"SOFT BLUES",
+title:"COOL YELLOWS",
 colors:[
-"#ABC4D0","#9FBBCB","#86AFC6",
-"#729ABB","#6C95B6","#5F8FB8",
-"#8798B0","#7E8FA8","#6881A0"
+"#F0EEB0",
+"#E6E09A",
+"#DDD88A"
 ]
 },
 
 {
-title:"BLUE GREYS",
+title:"COOL PINKS",
 colors:[
-"#9CA8B7","#8795A8","#7389A5",
-"#8FA1B4","#AEBBC9"
+"#F1B6D6",
+"#E993C1",
+"#D977AE",
+"#C75A97",
+"#A90C67"
 ]
 },
 
 {
-title:"SOFT TEALS",
+title:"ROSES + BERRIES",
 colors:[
-"#A5CAC6","#94B9B8","#82B1AA",
-"#6E9FA5","#7FAEA3","#8FB9B5"
+"#F06C93",
+"#E64F7D",
+"#D96796",
+"#C45886",
+"#B25789",
+"#A33E70",
+"#8E0E4A"
 ]
 },
 
 {
-title:"SOFT SAGES",
+title:"COOL AQUAS + TEALS",
 colors:[
-"#A7B59E","#9DB890","#8FAA95",
-"#94A98F","#9FB29B","#A8BBA3"
+"#8ADDD2",
+"#5EBBB0",
+"#2D8D7B",
+"#0E6A63",
+"#157E92",
+"#076E7A"
 ]
 },
 
 {
-title:"PERIWINKLES",
+title:"GREENS",
 colors:[
-"#AFAFC2","#9A9CBD","#8897BB",
-"#8A8CB0","#9AA3C3","#B2B3CD"
+"#66D1D0",
+"#4AB5A2",
+"#2D8C67",
+"#0F6A53",
+"#004C30"
 ]
 },
 
 {
-title:"LAVENDERS + MAUVES",
+title:"SOFT BLUE GREYS",
 colors:[
-"#B8A2C6","#A789B3","#9E98BB",
-"#8A82A5","#A58DB8","#B086B1"
+"#CDD5E2",
+"#A6B6D0",
+"#8A97B4",
+"#59627B",
+"#1E2846",
+"#CFDDE6",
+"#9AAEB8",
+"#607882"
 ]
 },
 
 {
-title:"SOFT ROSES",
+title:"TRUE SUMMER BLUES",
 colors:[
-"#C97787","#CF8092","#D697A5",
-"#D78C9D","#C48999","#B57383"
+"#72C6FB",
+"#2B8CD5",
+"#62CAE8",
+"#2E95BB",
+"#0B4E81",
+"#A5C8FF",
+"#6FB2F1",
+"#4C7FD0",
+"#1F43BF",
+"#01126E"
 ]
 },
 
 {
-title:"BLUSH PINKS",
+title:"PERIWINKLES + LAVENDERS",
 colors:[
-"#E5B4C0","#E9BDC7","#E7B9C7",
-"#EFC7D0","#DFA0B3","#D7A4AD"
-]
-},
-
-{
-title:"SOFT BERRIES",
-colors:[
-"#AE446E","#A24A78","#91556A",
-"#B5657A","#9F627C","#8C5972"
-]
-},
-
-{
-title:"SOFT SUMMER YELLOWS",
-colors:[
-"#E1DEA2","#DDD3AA","#D8D39A",
-"#D6CF9A","#E2D4A5","#E6D9B0"
+"#BAC5FF",
+"#8D98DD",
+"#6F73A9",
+"#CFCBF0",
+"#A5ABE5",
+"#3B349B",
+"#2E2583"
 ]
 }
 
 ];
 
-const grid=document.getElementById("grid")
-const lightbox=document.getElementById("lightbox")
-const lightboxColor=document.getElementById("lightboxColor")
+const grid=document.getElementById("grid");
+const lightbox=document.getElementById("lightbox");
+const lightboxColor=document.getElementById("lightboxColor");
 
-let all=[]
-let index=0
-let startX=0
+let all=[];
+let index=0;
+let startX=0;
 
 groups.forEach(group=>{
 
-const title=document.createElement("div")
-title.className="section-title"
-title.textContent=group.title
-grid.appendChild(title)
+const title=document.createElement("div");
+title.className="section-title";
+title.textContent=group.title;
+grid.appendChild(title);
 
 group.colors.forEach(color=>{
 
-all.push(color)
+all.push(color);
 
-const tile=document.createElement("div")
-tile.className="tile"
-tile.style.background=color
+const tile=document.createElement("div");
+tile.className="tile";
+tile.style.background=color;
 
 tile.onclick=()=>{
-index=all.indexOf(color)
-open()
-}
+index=all.indexOf(color);
+open();
+};
 
-grid.appendChild(tile)
+grid.appendChild(tile);
 
-})
+});
 
-})
+});
 
 function open(){
-lightbox.classList.add("show")
-render()
+lightbox.classList.add("show");
+render();
 }
 
 function render(){
-lightboxColor.style.background=all[index]
+lightboxColor.style.background=all[index];
 }
 
 function next(){
-index=(index+1)%all.length
-render()
+index=(index+1)%all.length;
+render();
 }
 
 function prev(){
-index=(index-1+all.length)%all.length
-render()
+index=(index-1+all.length)%all.length;
+render();
 }
 
-document.getElementById("close").onclick=()=>lightbox.classList.remove("show")
-document.getElementById("next").onclick=next
-document.getElementById("prev").onclick=prev
+document.getElementById("close").onclick=()=>lightbox.classList.remove("show");
+document.getElementById("next").onclick=next;
+document.getElementById("prev").onclick=prev;
 
 lightbox.addEventListener("touchstart",e=>{
-startX=e.touches[0].clientX
-})
+startX=e.touches[0].clientX;
+});
 
 lightbox.addEventListener("touchend",e=>{
-let diff=e.changedTouches[0].clientX-startX
-if(Math.abs(diff)<40)return
-diff<0?next():prev()
-})
+let diff=e.changedTouches[0].clientX-startX;
+if(Math.abs(diff)<40)return;
+diff<0?next():prev();
+});
 
 </script>
 
